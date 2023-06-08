@@ -2,7 +2,7 @@
 
 We'll use the bored API, documented here: https://www.boredapi.com/
 """
-
+input = input ("Input a word to find a show") 
 import requests
 
 def trace(*args):
@@ -15,7 +15,7 @@ def trace(*args):
 # figure out how to change it to get back a filtered activity.
 # The filter is up to you: number of people, category, price, etc.
 # Tip: try testing the API URLs directly in a browser first
-URL = "https://api.tvmaze.com/search/shows?q=dogs"
+URL = "https://api.tvmaze.com/search/shows?q="+ input
 
 # Get data from the web site and put it into Python collections
 trace ("Calling", URL)
