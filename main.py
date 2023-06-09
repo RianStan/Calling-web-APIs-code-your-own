@@ -2,13 +2,14 @@
 
 We'll use the bored API, documented here: https://www.boredapi.com/
 """
-input = input ("Input a word to find a show") 
+input = input ("Input a word to find a show or type out the shows name: ") 
 import requests
 
+TRACE = False
 def trace(*args):
   """Used for debug output"""
-  print (*args)  # Comment out this line to remove debug output
-  pass
+  if TRACE:
+    print (*args)  # Comment out this line to remove debug output
 
 # This base URL works, but doesn't return anything too interesting
 # After running this script, read https://www.boredapi.com/ and
@@ -28,8 +29,10 @@ trace ("\nText returned:", response.text)
 
 # You can also loop through each item (name/value pairs) in the JSON
 trace ("\nHere are all the key/value pairs in the JSON response:")
-for key, value in data.items():
-  trace (key, " : ", value)
+
+for show in data:
+ print (show["show"]["name"])
+ print (show["show"]["summary"])
 
 # After running this script and using the right URL to get the data
 # you need, comment out the print statement in the trace function to
